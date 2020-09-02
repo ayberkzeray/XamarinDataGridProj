@@ -1,0 +1,64 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="XamarinDataGrid.MainPage">
+
+    <StackLayout Padding="20" Spacing="0">
+        <Label Margin="0,0,0,20" FontSize="Large" Text="MY COMPANY DATA LIST" TextColor="Black" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand"/>
+
+        <Frame BackgroundColor="Crimson" BorderColor="DarkSlateGray" HeightRequest="60" Padding="0">
+            <Grid Padding="0">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="2.5*"/>
+                    <ColumnDefinition Width="2.5*"/>
+                    <ColumnDefinition Width="2.5*"/>
+                    <ColumnDefinition Width="2.5*"/>
+                </Grid.ColumnDefinitions>
+
+                <Label Margin="10,0,10,0" Text="Name" VerticalOptions="Center"  Grid.Column="0">
+                    <Label.GestureRecognizers>
+                        <TapGestureRecognizer  Tapped="NameSort_Tapped"/>
+                    </Label.GestureRecognizers>
+                </Label>
+                <Label Margin="10,0,10,0" Text="Id" VerticalOptions="Center"  Grid.Column="1" />
+                <Label Margin="10,0,10,0" Text="Sales Quantity" VerticalOptions="Center"  Grid.Column="2" />
+                <Label Margin="10,0,10,0" Text="Sales Amount" VerticalOptions="Center"  Grid.Column="3" />
+
+                <BoxView BackgroundColor="DarkSlateGray" WidthRequest="1" Grid.Column="0" HorizontalOptions="EndAndExpand" VerticalOptions="FillAndExpand" />
+                <BoxView BackgroundColor="DarkSlateGray" WidthRequest="1" Grid.Column="1" HorizontalOptions="EndAndExpand" VerticalOptions="FillAndExpand" />
+                <BoxView BackgroundColor="DarkSlateGray" WidthRequest="1" Grid.Column="2" HorizontalOptions="EndAndExpand" VerticalOptions="FillAndExpand" />
+                <BoxView BackgroundColor="DarkSlateGray" WidthRequest="1" Grid.Column="3" HorizontalOptions="EndAndExpand" VerticalOptions="FillAndExpand" />
+            </Grid>
+        </Frame>
+        <ListView x:Name="EmplooyeList" ItemsSource="{Binding Employees}" SeparatorVisibility="None" SelectionMode="None" HasUnevenRows="False">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <Frame  Padding="0" BorderColor="DarkSlateGray">
+                            <Grid Padding="0" RowSpacing="0">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="2.5*"/>
+                                    <ColumnDefinition Width="2.5*"/>
+                                    <ColumnDefinition Width="2.5*"/>
+                                    <ColumnDefinition Width="2.5*"/>
+                                </Grid.ColumnDefinitions>
+
+                                <Label Margin="10,0,10,0" Text="{Binding Name}" VerticalOptions="Center"  Grid.Column="0"  />
+                                <Label Margin="10,0,10,0" Text="{Binding Id}" VerticalOptions="Center"  Grid.Column="1" />
+                                <Label Margin="10,0,10,0" Text="{Binding Quantity}" VerticalOptions="Center"  Grid.Column="2" />
+                                <Label Margin="10,0,10,0" Text="{Binding Total}" VerticalOptions="Center"  Grid.Column="3" />
+
+                                <BoxView BackgroundColor="DarkSlateGray" WidthRequest="1" Grid.Column="0" HorizontalOptions="EndAndExpand" VerticalOptions="FillAndExpand" />
+                                <BoxView BackgroundColor="DarkSlateGray" WidthRequest="1" Grid.Column="1" HorizontalOptions="EndAndExpand" VerticalOptions="FillAndExpand"/>
+                                <BoxView BackgroundColor="DarkSlateGray" WidthRequest="1" Grid.Column="2" HorizontalOptions="EndAndExpand" VerticalOptions="FillAndExpand"/>
+                                <BoxView BackgroundColor="DarkSlateGray" WidthRequest="1" Grid.Column="3" HorizontalOptions="EndAndExpand" VerticalOptions="FillAndExpand"/>
+                            </Grid>
+
+                        </Frame>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+    </StackLayout>
+
+</ContentPage>
